@@ -1,0 +1,107 @@
+2022-01-28T11:08:38.067Z [INFO]: Git SSH Key acquired
+2022-01-28T11:08:38.140Z [INFO]: # Cloning repository: git@github.com:dreamteams-co-jp/dreamteams_front.git
+2022-01-28T11:08:38.232Z [INFO]: Agent pid 137
+2022-01-28T11:08:38.266Z [INFO]: Identity added: /root/.ssh/git_rsa (/root/.ssh/git_rsa)
+2022-01-28T11:08:38.693Z [INFO]: Cloning into 'dreamteams_front'...
+2022-01-28T11:08:39.412Z [INFO]: Warning: Permanently added the ECDSA host key for IP address '13.114.40.48' to the list of known hosts.
+2022-01-28T11:08:42.998Z [INFO]: # Switching to commit: 5a4e5d4b45565adadc3032a4c62bd5558d9343b7
+2022-01-28T11:08:43.124Z [INFO]: Agent pid 150
+2022-01-28T11:08:43.124Z [INFO]: Identity added: /root/.ssh/git_rsa (/root/.ssh/git_rsa)
+                                 Note: switching to '5a4e5d4b45565adadc3032a4c62bd5558d9343b7'.
+                                 You are in 'detached HEAD' state. You can look around, make experimental
+                                 changes and commit them, and you can discard any commits you make in this
+                                 state without impacting any branches by switching back to a branch.
+                                 If you want to create a new branch to retain commits you create, you may
+                                 do so (now or later) by using -c with the switch command. Example:
+                                 git switch -c <new-branch-name>
+                                 Or undo this operation with:
+                                 git switch -
+                                 Turn off this advice by setting config variable advice.detachedHead to false
+                                 HEAD is now at 5a4e5d4 config env-webpack
+2022-01-28T11:08:43.187Z [INFO]: Successfully cleaned up Git credentials
+2022-01-28T11:08:43.187Z [INFO]: # Checking for Git submodules at: /codebuild/output/src270899993/src/dreamteams_front/.gitmodules
+2022-01-28T11:08:43.210Z [INFO]: # Retrieving environment cache...
+2022-01-28T11:08:43.257Z [INFO]: # Retrieved environment cache
+2022-01-28T11:08:43.258Z [INFO]: ---- Setting Up SSM Secrets ----
+2022-01-28T11:08:43.258Z [INFO]: SSM params {"Path":"/amplify/d1zo3s8jxd1h5b/staging/","WithDecryption":true}
+2022-01-28T11:08:43.532Z [INFO]: # Last deployed commit: e1fc10b224997993b7173ef10e71065223ba334d
+2022-01-28T11:08:43.744Z [INFO]: # Retrieving cache...
+2022-01-28T11:08:48.710Z [INFO]: # Extracting cache...
+2022-01-28T11:08:53.061Z [INFO]: # Extraction completed
+2022-01-28T11:09:24.076Z [INFO]: ## Starting Backend Build
+                                 ## Checking for associated backend environment...
+                                 ## Backend environment association found
+2022-01-28T11:09:45.663Z [INFO]: [0mAmplify AppID found: d1zo3s8jxd1h5b. Amplify App name is: dreamteams_front[0m
+2022-01-28T11:09:45.720Z [INFO]: [0mBackend environment staging found in Amplify Console app: dreamteams_front[0m
+2022-01-28T11:09:48.501Z [WARNING]: - Fetching updates to backend environment: staging from the cloud.
+2022-01-28T11:09:49.481Z [WARNING]: ✔ Successfully pulled backend environment staging from the cloud.
+2022-01-28T11:09:49.487Z [INFO]: 
+2022-01-28T11:09:53.328Z [INFO]: [33mNote: It is recommended to run this command from the root of your app directory[39m
+2022-01-28T11:09:58.570Z [WARNING]: - Initializing your environment: staging
+2022-01-28T11:09:59.248Z [WARNING]: ✔ Initialized provider successfully.
+2022-01-28T11:09:59.730Z [WARNING]: - Updating resources in the cloud. This may take a few minutes...
+2022-01-28T11:10:06.058Z [INFO]: 
+2022-01-28T11:10:06.116Z [INFO]: UPDATE_IN_PROGRESS amplify-dreamteamsfront-staging-44944 AWS::CloudFormation::Stack Fri Jan 28 2022 11:10:00 GMT+0000 (Coordinated Universal Time) User Initiated
+2022-01-28T11:10:11.036Z [INFO]: 
+2022-01-28T11:10:11.038Z [INFO]: UPDATE_COMPLETE_CLEANUP_IN_PROGRESS amplify-dreamteamsfront-staging-44944 AWS::CloudFormation::Stack Fri Jan 28 2022 11:10:10 GMT+0000 (Coordinated Universal Time)
+2022-01-28T11:10:16.107Z [INFO]: 
+2022-01-28T11:10:16.108Z [INFO]: UPDATE_COMPLETE amplify-dreamteamsfront-staging-44944 AWS::CloudFormation::Stack Fri Jan 28 2022 11:10:11 GMT+0000 (Coordinated Universal Time)
+2022-01-28T11:10:31.262Z [WARNING]: - Uploading files...
+2022-01-28T11:10:31.343Z [WARNING]: - Uploading files...
+2022-01-28T11:10:31.430Z [WARNING]: - Uploading files...
+2022-01-28T11:10:31.491Z [WARNING]: ✔ All resources are updated in the cloud
+2022-01-28T11:10:31.492Z [INFO]: 
+2022-01-28T11:10:31.492Z [INFO]: 
+2022-01-28T11:10:32.017Z [INFO]: [32mInitialized your environment successfully.[39m
+2022-01-28T11:10:32.018Z [INFO]: [32mYour project has been successfully initialized and connected to the cloud![39m
+                                 [32mSome next steps:[39m
+                                 [0m"amplify status" will show you what you've added already and if it's locally configured or deployed[0m
+                                 [0m"amplify add <category>" will allow you to add features like user login or a backend API[0m
+                                 [0m"amplify push" will build all your local backend resources and provision it in the cloud[0m
+                                 [0m"amplify console" to open the Amplify Console and view your project status[0m
+                                 [0m"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud[0m
+                                 [32mPro tip:[39m
+                                 [0mTry "amplify add api" to create a backend API and then "amplify publish" to deploy everything[0m
+2022-01-28T11:10:36.089Z [INFO]: ## Completed Backend Build
+                                 ## Starting Frontend Build
+2022-01-28T11:10:36.090Z [INFO]: # Starting phase: preBuild
+                                 # Executing command: yarn install
+2022-01-28T11:10:36.698Z [INFO]: yarn install v1.22.0
+2022-01-28T11:10:36.778Z [INFO]: [1/4] Resolving packages...
+2022-01-28T11:10:37.182Z [INFO]: success Already up-to-date.
+2022-01-28T11:10:37.189Z [INFO]: Done in 0.49s.
+2022-01-28T11:10:37.200Z [INFO]: # Completed phase: preBuild
+                                 # Starting phase: build
+2022-01-28T11:10:37.200Z [INFO]: # Executing command: yarn run build
+2022-01-28T11:10:37.321Z [INFO]: yarn run v1.22.0
+2022-01-28T11:10:37.347Z [INFO]: $ next build
+2022-01-28T11:10:37.890Z [INFO]: info  - Loaded env from /codebuild/output/src270899993/src/dreamteams_front/.env.production
+2022-01-28T11:10:37.891Z [INFO]: info  - Loaded env from /codebuild/output/src270899993/src/dreamteams_front/.env
+2022-01-28T11:10:38.615Z [INFO]: info  - Using webpack 5. Reason: Enabled by default https://nextjs.org/docs/messages/webpack5
+2022-01-28T11:10:39.199Z [WARNING]: warn  - You have enabled experimental feature(s).
+2022-01-28T11:10:39.201Z [WARNING]: warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use them at your own risk.
+2022-01-28T11:10:39.204Z [INFO]: warn  - No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2022-01-28T11:10:39.225Z [INFO]: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2022-01-28T11:10:39.225Z [INFO]: This information is used to shape Next.js' roadmap and prioritize features.
+2022-01-28T11:10:39.226Z [INFO]: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2022-01-28T11:10:39.227Z [INFO]: https://nextjs.org/telemetry
+2022-01-28T11:10:39.227Z [INFO]: 
+2022-01-28T11:10:39.285Z [INFO]: info  - Checking validity of types...
+2022-01-28T11:10:45.872Z [WARNING]: Failed to compile.
+                                    ./src/pages/j_league/stats/index.tsx:92:13
+                                    Type error: Type 'string' is not assignable to type 'number'.
+                                    [0m [90m 90 | [39m        {isOpen [33m&&[39m ([0m
+                                    [0m [90m 91 | [39m          [33m<[39m[33mdiv[39m[0m
+                                    [0m[31m[1m>[22m[39m[90m 92 | [39m            tabIndex[33m=[39m[32m"0"[39m[0m
+                                    [0m [90m    | [39m            [31m[1m^[22m[39m[0m
+                                    [0m [90m 93 | [39m            className[33m=[39m[32m"absolute w-full bg-white md:top-[85px] top-[65px] max-h-[180px] overflow-auto"[39m[0m
+                                    [0m [90m 94 | [39m            onClick[33m=[39m{handleSelectItem}[0m
+                                    [0m [90m 95 | [39m          [33m>[39m[0m
+2022-01-28T11:10:45.898Z [WARNING]: error Command failed with exit code 1.
+2022-01-28T11:10:45.899Z [INFO]: info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+2022-01-28T11:10:45.905Z [ERROR]: !!! Build failed
+2022-01-28T11:10:45.905Z [ERROR]: !!! Non-Zero Exit Code detected
+2022-01-28T11:10:45.905Z [INFO]: # Starting environment caching...
+2022-01-28T11:10:45.905Z [INFO]: # Uploading environment cache artifact...
+2022-01-28T11:10:45.997Z [INFO]: # Environment caching completed
+Terminating logging...
