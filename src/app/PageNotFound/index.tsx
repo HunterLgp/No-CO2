@@ -12,7 +12,10 @@ const PageNotFound: FC = () => {
         style={{ left: "calc(50% - 12rem)" }}
       >
         <div className="text-4xl font-bold text-white mb-4">Page Not Found</div>
-        <Link to="/" className="rounded-md text-white">
+        <Link
+          to="/"
+          className="rounded-md text-white"
+        >
           Go Back Home
         </Link>
       </div>
