@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Auth, FormAuth } from "./type";
 
 const initialState: Auth = {
-  token: "token",
+  token: "zyxhshskcv",
   isLoading: false,
 };
 const authSlice = createSlice({

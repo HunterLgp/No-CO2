@@ -6,7 +6,8 @@ interface Props {
   children: JSX.Element;
 }
 const RequiredRouter: FC<Props> = ({ children }) => {
-  const isLogin = useSelector((state: RootState) => state.auth.token);
+  const isLogin = true;
+  // const isLogin = useSelector((state: RootState) => state.auth.token);
   return isLogin ? (
     children
   ) : (
