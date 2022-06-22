@@ -1,10 +1,22 @@
 import { FC, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useToken } from "../../hooks/useToken";
+import Avatar from "../individual/avatar";
+import { useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../services/store/rootStore";
+import { useDispatch } from "react-redux";
+import { logout } from "../../services/store/reducer/slices/authSlice";
 
 const Header: FC = () => {
-  const isLogin = false;
   const [visibleUserSetting, setVisibleUserSetting] = useState<boolean>(false);
   const [visibleNarbar, setVisibleNarbar] = useState<boolean>(false);
+  const { token, refreshToken } = useSelector((state: RootState) => state.auth);
+  const isLogin = useToken();
+  const dispatch = useDispatch<AppDispatch>();
+
+  const handleLogout = async () => {
+    dispatch(logout({ token, refreshToken }));
+  };
   return (
     <nav className="bg-gray-800 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,14 +32,14 @@ const Header: FC = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <NavLink
-                  to="/dashboard"
+                  to="/products"
                   className={({ isActive }) =>
                     isActive
                       ? "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   }
                 >
-                  Dashboard
+                  Products
                 </NavLink>
 
                 <NavLink
@@ -109,10 +121,9 @@ const Header: FC = () => {
                       aria-haspopup="true"
                       onClick={() => setVisibleUserSetting((prev) => !prev)}
                     >
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.6435-1/p148x148/37045802_940511482787750_7060303576035229696_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=1eb0c7&_nc_ohc=FUW6A3YiAuwAX_YU6qH&_nc_oc=AQln_Rebydr4W7NraEmvJyFBxVSLqkDUWdoYDyOTJUSmbNm2l3dggmffZqToJaYANcc&_nc_ht=scontent.fhan2-2.fna&oh=00_AT8TGlpOWHikKjmkcAfPztoqtoR27ge-3NMYvg24nea-HQ&oe=62303E02"
-                        alt=""
+                      <Avatar
+                        firstName="P"
+                        urlImage=""
                       />
                     </button>
                   </div>
@@ -121,15 +132,19 @@ const Header: FC = () => {
                       visibleUserSetting ? "block" : "hidden"
                     }`}
                   >
-                    <div className="block px-4 py-2 text-sm text-gray-700">
+                    <Link
+                      to="/info_user"
+                      className="block px-4 py-2 text-sm text-gray-700"
+                    >
                       Your Profile
-                    </div>
+                    </Link>
 
-                    <div className="block px-4 py-2 text-sm text-gray-700">
-                      Settings
-                    </div>
+                    <div className="block px-4 py-2 text-sm text-gray-700">Settings</div>
 
-                    <div className="block px-4 py-2 text-sm text-gray-700">
+                    <div
+                      className="block px-4 py-2 text-sm text-gray-700"
+                      onClick={handleLogout}
+                    >
                       Sign out
                     </div>
                   </div>
@@ -186,9 +201,7 @@ const Header: FC = () => {
       </div>
 
       <div
-        className={`z-50 absolute bg-gray-800 top-16 left-0 right-0 md:hidden ${
-          visibleNarbar ? "block" : "hidden"
-        }`}
+        className={`z-50 absolute bg-gray-800 top-16 left-0 right-0 md:hidden ${visibleNarbar ? "block" : "hidden"}`}
         id="mobile-menu"
       >
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
@@ -256,17 +269,13 @@ const Header: FC = () => {
             <div className="flex-shrink-0">
               <img
                 className="h-10 w-10 rounded-full"
-                src="https://scontent.fhan2-2.fna.fbcdn.net/v/t1.6435-1/p148x148/37045802_940511482787750_7060303576035229696_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=1eb0c7&_nc_ohc=FUW6A3YiAuwAX_YU6qH&_nc_oc=AQln_Rebydr4W7NraEmvJyFBxVSLqkDUWdoYDyOTJUSmbNm2l3dggmffZqToJaYANcc&_nc_ht=scontent.fhan2-2.fna&oh=00_AT8TGlpOWHikKjmkcAfPztoqtoR27ge-3NMYvg24nea-HQ&oe=62303E02"
+                src="#"
                 alt=""
               />
             </div>
             <div className="ml-3">
-              <div className="text-base font-medium leading-none text-white">
-                Tom Cook
-              </div>
-              <div className="text-sm font-medium leading-none text-gray-400">
-                tom@example.com
-              </div>
+              <div className="text-base font-medium leading-none text-white">Tom Cook</div>
+              <div className="text-sm font-medium leading-none text-gray-400">tom@example.com</div>
             </div>
             <button
               type="button"
@@ -289,11 +298,7 @@ const Header: FC = () => {
               </svg>
             </button>
           </div>
-          <div
-            className={`mt-3 px-2 space-y-1 ${
-              visibleUserSetting ? "block" : "hidden"
-            }`}
-          >
+          <div className={`mt-3 px-2 space-y-1 ${visibleUserSetting ? "block" : "hidden"}`}>
             <a
               href="#"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700"
@@ -321,3 +326,4 @@ const Header: FC = () => {
   );
 };
 export default Header;
+
