@@ -1,35 +1,79 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Auth, User } from "../types/user";
+
+export interface FormAuth {
+  userName: string;
+  password: string;
+  email?: string;
+  gender?: number;
+  firstName?: string;
+  lastName?: string;
+}
+export interface ResponseAuth {
+  token?: string;
+  refreshToken?: string;
+}
+export interface Auth {
+  isLoading: boolean;
+  token?: string;
+  refreshToken?: string;
+  error?: any;
+}
 
 const initialState: Auth = {
-  isLogin: false,
   isLoading: false,
 };
 const authSlice = createSlice({
-  name: "user",
+  name: "auth",
   initialState,
   reducers: {
-    login: (
-      state: Auth,
-      action: PayloadAction<{ userName: string; password: string }>
-    ) => {
+    register: (state: Auth, action: PayloadAction<FormAuth>) => {
       state.isLoading = true;
     },
-    loginSuccess: (state: Auth, action: PayloadAction<User>) => {
-      state.user = action.payload;
-      state.isLogin = true;
+    registerSuccess: (state: Auth, action: PayloadAction<ResponseAuth>) => {
+      state.token = action.payload.token;
+      state.refreshToken = action.payload.refreshToken;
       state.isLoading = false;
     },
-    loginFailed: (state: Auth) => {
+    registerFailed: (state: Auth, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    login: (state: Auth, action: PayloadAction<FormAuth>) => {
+      state.isLoading = true;
+    },
+    loginSuccess: (state: Auth, action: PayloadAction<ResponseAuth>) => {
+      state.token = action.payload.token;
+      state.refreshToken = action.payload.refreshToken;
       state.isLoading = false;
     },
-    logout: () => {
+    loginFailed: (state: Auth, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    logout: (state: Auth, action: PayloadAction<ResponseAuth>) => {
+      state.isLoading = true;
+    },
+    logoutSuccess: () => {
       return {
-        isLogin: false,
         isLoading: false,
       };
     },
+    logoutFailed: (state: Auth, action: PayloadAction<any>) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
   },
 });
-export const { login, loginSuccess, loginFailed, logout } = authSlice.actions;
+export const {
+  register,
+  registerSuccess,
+  registerFailed,
+  login,
+  loginSuccess,
+  loginFailed,
+  logout,
+  logoutSuccess,
+  logoutFailed,
+} = authSlice.actions;
 export default authSlice.reducer;
+
